@@ -20,6 +20,7 @@ env:
   POSTGRES_PASSWORD: postgres
   POSTGRES_DB: postgres
   POSTGRES_HOST: localhost
+  POSTGRES_PORT: 5432
 
 jobs:
   Test:
@@ -66,9 +67,9 @@ jobs:
     - name: Test with pytest
       env:
         DB_HOST: ${{ env.POSTGRES_HOST }}
-        DB_USER: postgres
-        DB_PASSWORD: postgres
-        DB_NAME: postgres
-        DB_PORT: 5432
+        DB_USER: ${{ env.POSTGRES_USER }}
+        DB_PASSWORD: ${{ env.POSTGRES_PASSWORD }}
+        DB_NAME: ${{ env.POSTGRES_DB }}
+        DB_PORT: ${{ env.POSTGRES_PORT }}
       run: |
         pytest tests/db/test_1.py
