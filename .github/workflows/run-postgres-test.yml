@@ -60,9 +60,9 @@ jobs:
     - name: Test with pytest
       env:
         DB_HOST: ${{ job.services.postgres.env.POSTGRES_HOST }}
-        DB_USER: ${{ job.services.postgres.env.POSTGRES_USER }}
-        DB_PASSWORD: ${{ job.services.postgres.env.POSTGRES_PASSWORD }}
-        DB_NAME: ${{ job.services.postgres.env.POSTGRES_DB }}
+        DB_USER: postgres
+        DB_PASSWORD: postgres
+        DB_NAME: postgres
         DB_PORT: 5432
       run: |
         pytest tests/db/test_1.py
