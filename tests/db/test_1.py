@@ -11,21 +11,22 @@ from sqlalchemy_utils import (
 )
 
 
-#DB_USER = os.environ.get("DB_USER")
-#DB_PASSWORD = os.environ.get("DB_PASSWORD")
-#DB_HOST = os.environ.get("DB_HOST")
-#DB_PORT = os.environ.get("DB_PORT")
+DB_USER = os.environ.get("DB_USER")
+DB_PASSWORD = os.environ.get("DB_PASSWORD")
+DB_HOST = os.environ.get("DB_HOST")
+DB_PORT = os.environ.get("DB_PORT")
 #DB_NAME = os.environ.get("DB_NAME")
 
-DB_USER = "postgres"
-DB_PASSWORD = "postgres"
-DB_HOST = "localhost"
-DB_PORT = "5432"
-DB_NAME = "test_db"
+# DB_USER = "postgres"
+# DB_PASSWORD = "postgres"
+# DB_HOST = "localhost"
+# DB_PORT = "5432"
+
+TEST_DB_NAME = "test_db"
 
 
 def test_foo():
-    db_url = f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
+    db_url = f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{TEST_DB_NAME}"
     if database_exists(db_url):
         drop_database(db_url)
     create_database(db_url)
