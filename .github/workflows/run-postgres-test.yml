@@ -15,6 +15,12 @@ on:
       - main
   workflow_dispatch:
 
+env:
+  POSTGRES_USER: postgres
+  POSTGRES_PASSWORD: postgres
+  POSTGRES_DB: postgres
+  POSTGRES_HOST: localhost
+
 jobs:
   Test:
 
@@ -59,7 +65,7 @@ jobs:
 
     - name: Test with pytest
       env:
-        DB_HOST: ${{ job.services.postgres.env.POSTGRES_HOST }}
+        DB_HOST: ${{ env.POSTGRES_HOST }}
         DB_USER: postgres
         DB_PASSWORD: postgres
         DB_NAME: postgres
