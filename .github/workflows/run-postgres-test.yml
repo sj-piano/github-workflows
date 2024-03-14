@@ -35,13 +35,14 @@ jobs:
           POSTGRES_USER: ${{ env.POSTGRES_USER }}
           POSTGRES_DB: ${{ env.POSTGRES_DB }}
           POSTGRES_HOST: ${{ env.POSTGRES_HOST }}
+          POSTGRES_PORT: ${{ env.POSTGRES_PORT }}
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
         ports:
-          - 5432:${{ env.POSTGRES_PORT }}
+          - 5432:$POSTGRES_PORT
 
     steps:
 
