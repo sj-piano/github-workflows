@@ -42,7 +42,7 @@ jobs:
           --health-timeout 5s
           --health-retries 5
         ports:
-          - 5432:$POSTGRES_PORT
+          - "5432:$POSTGRES_PORT"
 
     steps:
 
